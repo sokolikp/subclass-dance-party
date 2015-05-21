@@ -26,28 +26,32 @@ a:hover{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  border:none;
   border-radius:10px;
   position:absolute;
 }
 
-.blinky-dancer {
-  border:10px solid blue;
-  border-radius:10px;
+.kitten-dancer {
+  /*border:10px solid blue;*/
+  /*border-radius:10px;*/
+  /*background-image: url('characters/kitten.gif');*/
   position:absolute;
 }
 .ninja-turtle-dancer {
- border:10px solid green;
-  border-radius:10px;
+  /*border:10px solid green;
+  border-radius:10px;*/
+  /*background-image: url('characters/NinjaTurtle.gif');*/
   position:absolute;
 }
 .amy-schumer-dancer {
-  border:10px solid red;
-  border-radius:10px;
+  /*border:10px solid red;
+  border-radius:10px;*/
+  /*background-image: url('characters/AmySchumer.gif');*/
   position:absolute;
 }
 .hulk-hogan-dancer {
-  border:10px solid orange;
-  border-radius:10px;
+  /*border:10px solid orange;
+  border-radius:10px;*/
+  /*background-image: url('characters/hulkHogan.gif');*/
   position:absolute;
 }

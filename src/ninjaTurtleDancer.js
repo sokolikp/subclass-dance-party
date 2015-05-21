@@ -1,6 +1,7 @@
 var NinjaTurtleDancer = function(top, left, timeBetweenSteps){
   Dancer.apply(this, arguments);
   this.$node.addClass('ninja-turtle-dancer');// = $('<span class="dancer ninja-turtle-dancer"></span>');
+  this.$node.prepend('<img id="ninjaTurtle" src="characters/NinjaTurtle.gif" />')
 };
 
 NinjaTurtleDancer.prototype = Object.create(Dancer.prototype);

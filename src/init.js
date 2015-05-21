@@ -37,5 +37,17 @@ $(document).ready(function(){
   //   $('body').css({background-image: someVarName})
   // });
 
+  $('.lineUpButton').on('click', function(event){
+    var leftRightBuffer = 200;
+    var spreadDistance = ($("body").width()-(2*leftRightBuffer))/window.dancers.length;
+    console.log('spread');
+    console.log(spreadDistance);
+    for(var i=0; i<window.dancers.length; i++) {
+      $dancer = window.dancers[i].$node;
+      $dancer.css({top: $("body").height()/2, left: leftRightBuffer + i*spreadDistance});
+      console.log(leftRightBuffer + (i+1)*spreadDistance);
+    }
+  });
+
 });
 
