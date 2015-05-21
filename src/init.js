@@ -87,5 +87,18 @@ $(document).ready(function(){
     }
   });
 
+  $('img').on('mouseover', function(event){
+    // toggle transition class
+  });
+
+  $('#randomizeDancersButton').on('click', function(event){
+    // do stuff
+  });
+
+  $('#changeBackgroundButton').on('click', function(event){
+    // do stuff
+  });
+
+
 });
 
