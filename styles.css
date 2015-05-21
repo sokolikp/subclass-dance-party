@@ -20,8 +20,28 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+/*.dancer{
   border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}*/
+.blinky-dancer {
+  border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+}
+.ninja-turtle-dancer {
+ border:10px solid green;
+  border-radius:10px;
+  position:absolute;
+}
+.amy-schumer-dancer {
+  border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}
+.hulk-hogan-dancer {
+  border:10px solid blue;
   border-radius:10px;
   position:absolute;
 }
