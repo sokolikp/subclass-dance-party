@@ -1,6 +1,6 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.apply(this, arguments);
-  this.$node = $('<span class="dancer blinky-dancer"></span>');
+  this.$node.addClass('blinky-dancer'); //= $('<span class="dancer blinky-dancer"></span>');
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);

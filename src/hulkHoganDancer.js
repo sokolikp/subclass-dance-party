@@ -1,6 +1,6 @@
 var HulkHoganDancer = function(top, left, timeBetweenSteps){
   Dancer.apply(this, arguments);
-  this.$node = $('<span class="dancer hulk-hogan-dancer"></span>');
+  this.$node.addClass('hulk-hogan-dancer');// = $('<span class="dancer hulk-hogan-dancer"></span>');
 };
 
 HulkHoganDancer.prototype = Object.create(Dancer.prototype);

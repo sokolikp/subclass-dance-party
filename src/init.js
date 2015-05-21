@@ -28,6 +28,14 @@ $(document).ready(function(){
     );
 
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
+
+  // $('.generateBackgroundButton').on('click', function(event){
+
+  //   // call function that generates random background
+  //   $('body').css({background-image: someVarName})
+  // });
+
 });
 

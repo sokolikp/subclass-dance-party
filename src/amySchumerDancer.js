@@ -1,6 +1,6 @@
 var AmySchumerDancer = function(top, left, timeBetweenSteps){
   Dancer.apply(this, arguments);
-  this.$node = $('<span class="dancer amy-schumer-dancer"></span>');
+  this.$node.addClass('amy-schumer-dancer');// = $('<span class="dancer amy-schumer-dancer"></span>');
 };
 
 AmySchumerDancer.prototype = Object.create(Dancer.prototype);
