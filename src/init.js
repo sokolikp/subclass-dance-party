@@ -38,14 +38,52 @@ $(document).ready(function(){
   // });
 
   $('.lineUpButton').on('click', function(event){
-    var leftRightBuffer = 200;
-    var spreadDistance = ($("body").width()-(2*leftRightBuffer))/window.dancers.length;
-    console.log('spread');
-    console.log(spreadDistance);
+    //var leftRightBuffer = 200;
+    var spreadDistance = 45;//($("body").width()-(2*leftRightBuffer))/window.dancers.length;
+    var totalRealEstate = (window.dancers.length-1) * spreadDistance;
+    var leftRightBuffer = ($("body").width() - totalRealEstate)/2;
+    //console.log('spread');
+    //console.log(spreadDistance);
     for(var i=0; i<window.dancers.length; i++) {
-      $dancer = window.dancers[i].$node;
+      var $dancer = window.dancers[i].$node;
       $dancer.css({top: $("body").height()/2, left: leftRightBuffer + i*spreadDistance});
-      console.log(leftRightBuffer + (i+1)*spreadDistance);
+      console.log('height', $("body").height()/2);
+      console.log('actual offset', $dancer.offset().top);
+    }
+  });
+
+  $('#danceWithPartnerButton').on('click', function(event){
+
+    var dancersCopy = window.dancers.slice();
+    for(var i=0; i<dancersCopy.length; i++) {
+      var min = Number.MAX_VALUE;
+      var $closestDancer;
+      if(dancersCopy[i] !== undefined) {
+        var index;
+        for(var j=0; j<dancersCopy.length; j++) {
+          //$closest = window.dancers[j]
+          if(i !== j && dancersCopy[j] !== undefined) {
+            var $dancer1 = dancersCopy[i].$node;
+            var $dancer2 = dancersCopy[j].$node;
+            //var $closestDancer = dancer2;
+            var dancer1XPos = $dancer1.offset().left;
+            var dancer1YPos = $dancer1.offset().top;
+            var dancer2XPos = $dancer2.offset().left;
+            var dancer2YPos = $dancer2.offset().top;
+            var distance = Math.sqrt(Math.abs(dancer1XPos - dancer2XPos)*Math.abs(dancer1XPos - dancer2XPos) + Math.abs(dancer1YPos - dancer2YPos)*Math.abs(dancer1YPos - dancer2YPos));
+            if(distance < min) {
+              min = distance;
+              index = j;
+              $closestDancer = $dancer2;
+            }
+          }
+        }
+        //var pair = [$dancer1, $closestDancer];
+        // get $dancer1 and $closesDancer together
+        $closestDancer.css({left: $dancer1.offset().left + 30, top: $dancer1.offset().top});
+        dancersCopy[i] = undefined;
+        dancersCopy[index] = undefined;
+      }
     }
   });
 
