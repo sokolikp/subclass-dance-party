@@ -58,3 +58,75 @@ img {
   /*background-image: url('characters/hulkHogan.gif');*/
   position:absolute;
 }
+
+.spin-animate-in {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 40ms;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin-in;
+    -moz-animation-duration: 40ms;
+    -moz-animation-iteration-count: 2;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin-in;
+    -ms-animation-duration: 40ms;
+    -ms-animation-iteration-count: 2;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin-in;
+    animation-duration: 40ms;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin-in {
+    from { -ms-transform: rotateY(0deg); }
+    to { -ms-transform: rotateY(360deg); }
+}
+@-moz-keyframes spin-in {
+    from { -moz-transform: rotateY(0deg); }
+    to { -moz-transform: rotateY(360deg); }
+}
+@-webkit-keyframes spin-in {
+    from { -webkit-transform: rotateY(0deg); }
+    to { -webkit-transform: rotateY(360deg); }
+}
+@keyframes spin-in {
+    from { transform:rotateY(0deg); }
+    to { transform:rotateY(360deg); }
+}
+
+.spin-animate-out {
+    -webkit-animation-name: spin-out;
+    -webkit-animation-duration: 40ms;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin-out;
+    -moz-animation-duration: 40ms;
+    -moz-animation-iteration-count: 2;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin-out;
+    -ms-animation-duration: 40ms;
+    -ms-animation-iteration-count: 2;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin-out;
+    animation-duration: 40ms;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin-out {
+    from { -ms-transform: rotateY(360deg); }
+    to { -ms-transform: rotateY(0deg); }
+}
+@-moz-keyframes spin-out {
+    from { -moz-transform: rotateY(360deg); }
+    to { -moz-transform: rotateY(0deg); }
+}
+@-webkit-keyframes spin-out {
+    from { -webkit-transform: rotateY(360deg); }
+    to { -webkit-transform: rotateY(0deg); }
+}
+@keyframes spin-out {
+    from { transform:rotateY(360deg); }
+    to { transform:rotateY(0deg); }
+}
