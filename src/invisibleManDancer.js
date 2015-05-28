@@ -1,7 +1,7 @@
 var InvisibleManDancer = function(top, left, timeBetweenSteps){
   Dancer.apply(this, arguments);
   this.$node.addClass('invisible-man-dancer');// = $('<span class="dancer amy-schumer-dancer"></span>');
-  this.$node.prepend('<img src="characters/invisibleMan.gif">')
+  this.$node.prepend('<img src="characters/invisibleMan.gif">');
 };
 
 InvisibleManDancer.prototype = Object.create(Dancer.prototype);

@@ -1,5 +1,7 @@
 $(document).ready(function(){
   window.dancers = [];
+  window.backgrounds = ['backgrounds/boxingRing.jpg', 'backgrounds/Crossfit.jpg', 'backgrounds/MortalKombat.jpg', 'backgrounds/RainbowRoad.png', 'backgrounds/Yacht.jpg'];
+
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -22,8 +24,8 @@ $(document).ready(function(){
 
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      35 + ($("body").height()-155) * Math.random(),
+      20 + ($("body").width()-140) * Math.random(),
       Math.random() * 1000
     );
 
@@ -37,7 +39,7 @@ $(document).ready(function(){
   //   $('body').css({background-image: someVarName})
   // });
 
-  $('.lineUpButton').on('click', function(event){
+  $('#lineUpButton').on('click', function(event){
     //var leftRightBuffer = 200;
     var spreadDistance = 45;//($("body").width()-(2*leftRightBuffer))/window.dancers.length;
     var totalRealEstate = (window.dancers.length-1) * spreadDistance;
@@ -47,8 +49,15 @@ $(document).ready(function(){
     for(var i=0; i<window.dancers.length; i++) {
       var $dancer = window.dancers[i].$node;
       $dancer.css({top: $("body").height()/2, left: leftRightBuffer + i*spreadDistance});
-      console.log('height', $("body").height()/2);
-      console.log('actual offset', $dancer.offset().top);
+    }
+  });
+
+  $('#randomizeDancersButton').on('click', function(event){
+    for(var i=0; i<window.dancers.length; i++) {
+      var $dancer = window.dancers[i].$node;
+      var randTop = 35 + ($("body").height()-155) * Math.random();
+      var randLeft = 20 + ($("body").width()-120) * Math.random();
+      $dancer.css({top: randTop, left: randLeft});
     }
   });
 
@@ -61,11 +70,9 @@ $(document).ready(function(){
       if(dancersCopy[i] !== undefined) {
         var index;
         for(var j=0; j<dancersCopy.length; j++) {
-          //$closest = window.dancers[j]
           if(i !== j && dancersCopy[j] !== undefined) {
             var $dancer1 = dancersCopy[i].$node;
             var $dancer2 = dancersCopy[j].$node;
-            //var $closestDancer = dancer2;
             var dancer1XPos = $dancer1.offset().left;
             var dancer1YPos = $dancer1.offset().top;
             var dancer2XPos = $dancer2.offset().left;
@@ -78,8 +85,6 @@ $(document).ready(function(){
             }
           }
         }
-        //var pair = [$dancer1, $closestDancer];
-        // get $dancer1 and $closesDancer together
         $closestDancer.css({left: $dancer1.offset().left + 30, top: $dancer1.offset().top});
         dancersCopy[i] = undefined;
         dancersCopy[index] = undefined;
@@ -87,16 +92,24 @@ $(document).ready(function(){
     }
   });
 
-  $('img').on('mouseover', function(event){
+  $('body').on('mouseenter', '.dancer', function(event){
     // toggle transition class
+    $(this).removeClass('spin-animate-out');
+    $(this).addClass('spin-animate-in');
   });
 
-  $('#randomizeDancersButton').on('click', function(event){
-    // do stuff
+  $('body').on('mouseleave', '.dancer', function(event){
+    // toggle transition class
+    $(this).removeClass('spin-animate-in');
+    $(this).addClass('spin-animate-out');
   });
+
 
   $('#changeBackgroundButton').on('click', function(event){
-    // do stuff
+    var rand = Math.floor(Math.random() * window.backgrounds.length);
+
+    $('body').css({"background-image": 'url("' + window.backgrounds[rand] + '")'});
+
   });
 
 
